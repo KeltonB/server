@@ -11,13 +11,13 @@ fs.readFile('filelist.txt', 'utf-8', function(err, data){
 // password: pwd
 
 var port = 8090;
-server.use(express.static('public'));
 
 
-server.get("/", (req, res) => {
+server.get("/test", (req, res) => {
     res.send(" <h1>Welcome to my server!</h1> ");
     console.log("Server pinged");
 });
+server.use(express.static('public'));
 
 
 server.listen(port, () => {
