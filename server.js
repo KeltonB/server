@@ -1,14 +1,26 @@
 const express = require('express');
 const server = express();
 const ip = require('ip');
-var port = 8080;
+
+var fs = require('fs');
+/*
+fs.readFile('filelist.txt', 'utf-8', function(err, data){
+    if (err) throw err;
+});
+*/
+// password: pwd
+
+var port = 8090;
+server.use(express.static('public'));
+
 
 server.get("/", (req, res) => {
     res.send(" <h1>Welcome to my server!</h1> ");
     console.log("Server pinged");
 });
 
-server.listen(PORT, () => {
+
+server.listen(port, () => {
     console.log(`listening on port 8080`);
-    console.log(`Go to your web browser and type in: 10.92.30.51:8080 to see the server`);
+    console.log(`Go to your web browser and type in: ${ip.address()}:${port} to see the server`);
 })
