@@ -2,14 +2,24 @@
 <html>
 <body>
 <h1> This is the index html, it werks.</h1>
+
 <label for="t">Text to become Encrypted:</label>
 <br>
 <textarea id="t" placeholder="Enter text here"></textarea>
 <br>
 <input type="text" id="pwd" placeholder="Enter password here"></textarea>
 <br>
-<button id="b" onclick="dec()">Generate Encrypted Text</button>
+<button id="b" onclick="enc()">Generate Encrypted Text</button>
 <p id="main"></p>
+
+<label for="t2">Text to become decrypted:</label>
+<br>
+<textarea id="t2" placeholder="Enter text here"></textarea>
+<br>
+<input type="text2" id="pwd2" placeholder="Enter password here"></textarea>
+<br>
+<button id="b2" onclick="dec()">Generate decrypted Text</button>
+<p id="main2"></p>
 
 <button onclick="start()">CLICK ME TO GET SECRET FILE CONTENTS</button>
 <br>
@@ -29,20 +39,25 @@
   }
   //what i am working on
 function start(){
-  document.getElementById("decrypted").innerHTML = "This workd";
+  //document.getElementById("decrypted").innerHTML = "This workd";
   var enc = getSecretFile();
   var pwd = window.prompt("Password","");
   var dec = CryptoJS.AES.decrypt(enc, pwd);
   document.getElementById("decrypted").innerHTML = dec;
-  alert(dec);
+  //alert(dec);
 }
 
 
 
-  function dec(){
+  function enc(){
     var te = document.getElementById("t").value;
     var pwd = document.getElementById("pwd").value;
     document.getElementById("main").innerHTML = CryptoJS.AES.encrypt(te, pwd);
+  }
+  function dec(){
+    var te = document.getElementById("t2").value;
+    var pwd = document.getElementById("pwd2").value;
+    document.getElementById("main2").innerHTML = CryptoJS.AES.decrypt(te, pwd).toString(CryptoJS.enc.Utf8);
   }
 // var encrypted = CryptoJS.AES.encrypt(text, "pwd");
 // var decrypted = CryptoJS.AES.decrypt(encrypted, "pwd");
