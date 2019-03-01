@@ -2,7 +2,24 @@
 <html>
 <body>
 <h1> This is the kelton's server.</h1>
+<br>
+<a href="fourm.html">Link to interactive fourm!</a>
+<br>
+<br>
 <a href="pic.html">Link to battery picture</a>
+<br>
+<br>
+<a href="signup.html">signup</a>
+<br>
+<br>
+<a href="login.html">login</a>
+<br>
+<br>
+<a href="makeid.html">Generate login key</a>
+<br>
+<br>
+<a href="doggo.html">View picture of cute doggo</a>
+<br>
 <br>
 <label for="t">Text to become Encrypted:</label>
 <br>
@@ -25,17 +42,11 @@
 <button onclick="start()">CLICK ME TO GET SECRET FILE CONTENTS</button>
 <br>
 <p id="decrypted">The decrypted text will be here.</p>
-
 <script src="aes.js"></script>
 <script>
 
   function getSecretFile(){
     var t = "U2FsdGVkX19/vL4r7scMGzzsK3Vgxhokr86L7yOsc5s=";
-    /*fetch("text.txt").then(function(response) {
-    return response.text().then(function(text) {
-      t = text;
-    });
-  });*/
   return(t);
   }
   //what i am working on
